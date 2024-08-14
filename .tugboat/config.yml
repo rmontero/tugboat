@@ -99,6 +99,9 @@ services:
 
         # One last cache rebuild.
         - vendor/bin/drush cache:rebuild
+      # Expose port 80 for the frontend app.
+      ports:
+        - "8080:8080"
 
   # Define a node service for the headless app.
   node:
@@ -133,11 +136,11 @@ services:
     ports:
       - "80:80"
 
-  # Define an ingress point for the frontend and webserver services.
-  ingress:
-    # Route traffic to the node service on port 80.
-    - port: 80
-      service: node
-    # Route traffic to the webserver service on port 8080.
-    - port: 8080
-      service: webserver
+  # # Define an ingress point for the frontend and webserver services.
+  # ingress:
+  #   # Route traffic to the node service on port 80.
+  #   - port: 80
+  #     service: node
+  #   # Route traffic to the webserver service on port 8080.
+  #   - port: 8080
+  #     service: webserver
