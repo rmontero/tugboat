@@ -36,12 +36,6 @@ services:
     # Use Nginx with PHP-FPM: update to match your version of PHP.
     image: tugboatqa/php-nginx:8.1-fpm
 
-    # Set this as the default service. This does a few things
-    #   1. Clones the git repository into the service container
-    #   2. Exposes port 80 to the Tugboat HTTP proxy
-    #   3. Routes requests to the preview URL to this service
-    default: true
-
     # Wait until the database service is done building.
     depends: database
 
